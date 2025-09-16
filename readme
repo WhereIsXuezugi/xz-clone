@@ -1,1 +1,56 @@
-readme.me
+./configure --prefix=$HOME/.local
+
+Use code with caution.
+This command will prepare the build to install into $HOME/.local/bin, $HOME/.local/lib, etc. Using .local is a common convention for local, non-system-wide installations. 
+
+Step 3: Build and install
+
+    Compile the code:
+    sh
+
+    make
+
+    Use code with caution.
+
+Install without sudo: Since you specified a directory you own with the --prefix flag, you can now run make install without root privileges.
+sh
+
+make install
+
+Use code with caution.
+
+Step 4: Add the new path to your shell
+Your shell (e.g., Bash or Zsh) won't automatically look for executables in $HOME/.local/bin. You need to add this directory to your PATH environment variable. 
+
+    Open your shell's configuration file. This is typically ~/.bashrc for Bash or ~/.zshrc for Zsh.
+    sh
+
+    # For Bash
+    nano ~/.bashrc
+
+    # For Zsh
+    nano ~/.zshrc
+
+    Use code with caution.
+
+Add the following line to the end of the file:
+sh
+
+export PATH="$HOME/.local/bin:$PATH"
+
+Use code with caution.
+Save and close the file.
+Apply the changes: You can either open a new terminal window or source the configuration file in your current session.
+sh
+
+source ~/.bashrc  # or source ~/.zshrc
+
+Use code with caution.
+ 
+
+Step 5: Verify the installation
+You can now check that your locally installed xz is being used instead of any system version. 
+sh
+
+which xz
+
